@@ -4,7 +4,7 @@ Snow
 Coleman
 Boyle
 Mcgowan
-O'Connor
+Connor
 Bernard
 Ray
 Mendoza
@@ -52,7 +52,7 @@ Lozano
 Olsen
 David
 Kelly
-O'Moore
+Moore
 Bray
 Howard
 Copeland
