@@ -7,19 +7,23 @@ import undetected_chromedriver as uc
 import random
 
 location = open("locations.txt", "r")
-names = open("name.txt", "r")
-domain = open("domain.txt", "r")
-nameList = names.read().splitlines()
+names_last = open("names_last.txt", "r")
+names_first = open("names_first.txt", "r")
+domains = open("domains.txt", "r")
+nameFirstList = names_last.read().splitlines()
+nameLastList = names_first.read().splitlines()
 locationList = location.read().splitlines()
-domainList = domain.read().splitlines()
+domainList = domains.read().splitlines()
 count = 0
 x = True
 
 while True:
     if x:
-        name = nameList[random.randint(0,(len(nameList)-1))]
+        name_first = nameFirstList[random.randint(0,(len(nameFirstList)-1))]
+        name_last = nameLastList[random.randint(0,(len(nameLastList)-1))]
+        name = name_first + " " + name_last
         domain = domainList[random.randint(0,(len(domainList)-1))]
-        email = name.split()[random.randint(0,1)] + '@' + domain
+        email = [name_first, name_last][random.randint(0,1)] + str(random.randint(0, 99)) + '@' + domain
 
         location = locationList[random.randint(0,(len(locationList)-1))]
         driver = uc.Chrome()
