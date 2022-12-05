@@ -5,11 +5,10 @@ from selenium.webdriver import ActionChains
 import time
 import undetected_chromedriver as uc
 import random
+from names import get_full_name
 
 location = open("locations.txt", "r")
-names = open("name.txt", "r")
 domain = open("domain.txt", "r")
-nameList = names.read().splitlines()
 locationList = location.read().splitlines()
 domainList = domain.read().splitlines()
 count = 0
@@ -17,7 +16,7 @@ x = True
 
 while True:
     if x:
-        name = nameList[random.randint(0,(len(nameList)-1))]
+        name = get_full_name()
         domain = domainList[random.randint(0,(len(domainList)-1))]
         email = name.split()[random.randint(0,1)] + '@' + domain
 
