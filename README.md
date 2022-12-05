@@ -6,4 +6,5 @@ Don't be alarmed if arfter the script fill in the forms text comes up saying `yo
 
 ## Todo
 - add more names and locations
-- fix
+- fix bugs
+- fill in description field to make fake reports harder to sort out
