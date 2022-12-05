@@ -22,7 +22,12 @@ while True:
     if x:
         name = get_full_name()
         domain = domainList[random.randint(0,(len(domainList)-1))]
-        email = name.split()[random.randint(0,1)] + '@' + domain
+        if random.randint(0,1) == 0:
+            f_name, l_name = name.split(' ')[0], name.split(' ')[1]
+            email = f_name + '.' + l_name + str(random.randint(100, 999)) + '@' + domain
+        else:
+            email = name.split()[random.randint(0,1)] + '@' + domain
+        print(email)
         complant = complantList[random.randint(0,(len(complantList)-1))]
         location = locationList[random.randint(0,(len(locationList)-1))]
         driver = uc.Chrome()
