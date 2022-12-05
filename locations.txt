@@ -1,6 +1,6 @@
 Lake Winnebago
 Arlington Heights
-West Grove	PA
+West Grove
 Hayfield
 Homestead
 Charleston
@@ -9,8 +9,8 @@ Clear Lake
 Gateway
 Camden	OH
 Las Animas
-Moorefield	WV
-Sylacauga	AL
+Moorefield 
+Sylacauga
 Tangerine
 Marbury
 Savannah
@@ -20,17 +20,17 @@ Gilbert
 Brookville
 Seabeck
 Decatur
-Hammond	WI
+Hammond
 Demarest
 Greenport West
 Edgefield
-Prairie Ridge	WA
+Prairie Ridge
 Ladera Ranch
 Milford
-Johnsonburg	PA
+Johnsonburg
 Evansburg
 Frederick
 Alstead
-McIntosh	NM
+McIntosh
 Old Tappan
 Corcoran
