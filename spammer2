@@ -1,0 +1,33 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver import ActionChains
+import time
+import undetected_chromedriver as uc
+from faker import Faker
+from faker.providers import profile
+
+fake=Faker()
+
+fake.add_provider(profile)
+
+def fake_profile():
+   return  fake.profile()
+   
+def runner():
+    driver = uc.Chrome()ge
+    for _ in range(20):
+        profile=fake_profile()
+        driver.get("https://www.defendkidstx.com#popup")
+        time.sleep(10)
+        actions ={'name': ('et_pb_contact_name_0',profile['name']),
+                    'email':('et_pb_contact_email_0',profile['mail']),
+                    'location':('et_pb_contact_location_of_show_0',profile['address'].replace("\n"," "))}
+        if "Defend" in driver.title:
+            for action in actions:
+                driver.find_element(By.ID, actions[action[0]]).send_keys(action[1])
+            time.sleep(5)
+            ActionChains(driver).click(driver.find_element(By.NAME, 'et_builder_submit_button')).perform()
+            time.sleep(30)
+            driver.close()
+runner()
