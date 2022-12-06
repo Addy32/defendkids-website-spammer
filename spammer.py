@@ -45,7 +45,7 @@ while True:
                 inputName = driver.find_element(By.ID, 'et_pb_contact_location_of_show_0')
                 inputName.send_keys(location)
                 time.sleep(0.5)
-                if 5 == random.randint(0,15):
+                if 5 == random.randint(0,5):
                     inputName = driver.find_element(By.ID, 'et_pb_contact_other_info_0')
                     inputName.send_keys(complant)
                 time.sleep(2)
