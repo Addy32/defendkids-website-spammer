@@ -2,32 +2,44 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver import ActionChains
-import time
+from time import sleep
 import undetected_chromedriver as uc
 from faker import Faker
 from faker.providers import profile
+from faker.providers import lorem
+from random import randint
+import string
 
 fake=Faker()
 
 fake.add_provider(profile)
+fake.add_provider(lorem)
 
 def fake_profile():
    return  fake.profile()
    
 def runner():
-    driver = uc.Chrome()ge
+    driver = uc.Chrome()
     for _ in range(20):
-        profile=fake_profile()
         driver.get("https://www.defendkidstx.com#popup")
-        time.sleep(10)
+        profile=fake_profile()
+        sleep(10)
         actions ={'name': ('et_pb_contact_name_0',profile['name']),
                     'email':('et_pb_contact_email_0',profile['mail']),
-                    'location':('et_pb_contact_location_of_show_0',profile['address'].replace("\n"," "))}
-        if "Defend" in driver.title:
-            for action in actions:
-                driver.find_element(By.ID, actions[action[0]]).send_keys(action[1])
-            time.sleep(5)
-            ActionChains(driver).click(driver.find_element(By.NAME, 'et_builder_submit_button')).perform()
-            time.sleep(30)
+                    'location':('et_pb_contact_location_of_show_0',profile['address'].translate(str.maketrans(' ', ' ', string.punctuation)))}
+        paragraph=fake.paragraph(nb_sentences=randint(3,5))
+        for action in actions:
+            driver.find_element(By.ID, actions[action][0]).send_keys(actions[action][1])
+            sleep(.5)
+        driver.find_element(By.ID, 'et_pb_contact_other_info_0').send_keys(paragraph)
+        sleep(5)
+        try:
+            button = driver.find_element(By.NAME, 'et_builder_submit_button')
+            ActionChains(driver).click(button).perform()
+        except:
             driver.close()
+        finally:
+            sleep(10)
+    driver.close()
+
 runner()
